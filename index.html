@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yellowipe Investments — AI-Augmented Diversified Investment</title>
+<meta name="description" content="Yellowipe Investments deploys AI-augmented capital across real estate, public markets, private companies, and operations. AI multiplies the effectiveness of capital, assets, and teams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1220;
+    --panel:#111B2E;
+    --panel-2:#0E1727;
+    --grid:#1E2A40;
+    --text:#E8EDF5;
+    --muted:#8A96AB;
+    --amber:#F2B31B;
+    --tick-up:#2EBD85;
+    --tick-dn:#E0455A;
+    --maxw:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--amber);color:var(--ink)}
+  a{color:var(--amber);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--amber);margin-bottom:14px;
+  }
+  h1,h2,h3{font-family:'Archivo',sans-serif;line-height:1.12}
+  h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;letter-spacing:-.01em}
+  h3{font-weight:700}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,18,32,.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--grid);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;color:var(--text);letter-spacing:.01em}
+  .brand:hover{text-decoration:none}
+  .brand-mark{width:14px;height:14px;background:var(--amber);clip-path:polygon(0 100%,50% 0,100% 100%)}
+  .nav-links{display:flex;gap:28px;font-size:14px;align-items:center}
+  .nav-links a{color:var(--muted)}
+  .nav-links a:hover{color:var(--text);text-decoration:none}
+  .nav-cta{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:var(--ink);background:var(--amber);padding:9px 16px;border-radius:3px;white-space:nowrap}
+  .nav-cta:hover{background:#FFC637;text-decoration:none}
+  @media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:96px 0 84px;
+    background:
+      linear-gradient(180deg,rgba(242,179,27,.04),transparent 300px),
+      repeating-linear-gradient(90deg,transparent 0 79px,rgba(30,42,64,.5) 79px 80px),
+      repeating-linear-gradient(0deg,transparent 0 79px,rgba(30,42,64,.5) 79px 80px);
+  }
+  .hero h1{
+    font-size:clamp(36px,5.8vw,64px);font-weight:800;letter-spacing:-.015em;
+    max-width:920px;margin-bottom:24px;
+  }
+  .hero h1 em{font-style:normal;color:var(--amber)}
+  .hero p.lede{font-size:clamp(16px,1.9vw,18px);color:var(--muted);max-width:720px;margin-bottom:40px;line-height:1.75}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;
+    padding:14px 26px;border-radius:3px;border:1px solid transparent;cursor:pointer;
+  }
+  .btn-primary{background:var(--amber);color:var(--ink)}
+  .btn-primary:hover{background:#FFC637;text-decoration:none}
+  .btn-ghost{border-color:var(--grid);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--amber);text-decoration:none}
+
+  /* ---------- AI thesis banner ---------- */
+  .ai-thesis{background:linear-gradient(90deg,rgba(242,179,27,.08),rgba(242,179,27,.02));border-top:1px solid var(--grid);border-bottom:1px solid var(--grid);padding:48px 0}
+  .ai-thesis .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .ai-thesis h2{margin-bottom:20px}
+  .ai-thesis p{color:var(--muted);font-size:15.5px;margin-bottom:14px;line-height:1.75}
+  .ai-thesis ul{list-style:none;font-size:14.5px}
+  .ai-thesis li{padding:10px 0;border-top:1px solid var(--grid);color:var(--text)}
+  .ai-thesis li:before{content:"⚡ ";color:var(--amber);margin-right:8px}
+  @media(max-width:860px){
+    .ai-thesis .wrap{grid-template-columns:1fr;gap:32px}
+  }
+
+  /* ---------- Overview strip ---------- */
+  .overview{border-top:1px solid var(--grid);border-bottom:1px solid var(--grid);background:var(--panel-2)}
+  .overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--panel-2)}
+  .overview-item{padding:32px 24px;border-left:1px solid var(--grid)}
+  .overview-item:first-child{border-left:none}
+  .overview-item .val{font-family:'IBM Plex Mono',monospace;font-size:clamp(22px,2.8vw,32px);font-weight:600;color:var(--amber)}
+  .overview-item .cap{font-size:12px;color:var(--muted);margin-top:6px}
+  @media(max-width:760px){
+    .overview-grid{grid-template-columns:1fr 1fr}
+    .overview-item:nth-child(3){border-left:none}
+    .overview-item{border-top:1px solid var(--grid)}
+    .overview-item:nth-child(-n+2){border-top:none}
+  }
+
+  /* ---------- Sections ---------- */
+  section{padding:88px 0}
+  .section-head{max-width:700px;margin-bottom:52px}
+  .section-head p{color:var(--muted);font-size:15.5px;line-height:1.75}
+
+  /* Platforms grid */
+  .platforms{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .platform{border:1px solid var(--grid);border-top:3px solid var(--amber);background:var(--panel);padding:36px 32px}
+  .platform .badge{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:14px}
+  .platform h3{font-size:21px;margin-bottom:10px;font-weight:700}
+  .platform p{font-size:14.5px;color:var(--muted);margin-bottom:20px;line-height:1.7}
+  .platform ul{list-style:none;font-size:13.5px}
+  .platform li{padding:8px 0;border-top:1px solid var(--grid);color:var(--text)}
+  .platform li:before{content:"→ ";color:var(--amber);margin-right:6px;font-family:'IBM Plex Mono',monospace}
+  @media(max-width:860px){.platforms{grid-template-columns:1fr}}
+
+  /* Principles grid */
+  .principles{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--grid);border:1px solid var(--grid)}
+  .principle{background:var(--panel);padding:36px 32px}
+  .principle .num{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:12px}
+  .principle h3{font-size:18px;font-weight:700;margin-bottom:8px}
+  .principle p{font-size:14.5px;color:var(--muted);line-height:1.7}
+  @media(max-width:760px){.principles{grid-template-columns:1fr}}
+
+  /* Contact CTA */
+  .cta-box{background:var(--panel);border:1px solid var(--grid);padding:48px 40px;text-align:center}
+  .cta-box h2{margin-bottom:14px}
+  .cta-box p{color:var(--muted);max-width:540px;margin:0 auto 28px;font-size:15.5px}
+
+  /* Disclosure */
+  .disclosure{background:var(--panel-2);border-top:1px solid var(--grid);border-bottom:1px solid var(--grid)}
+  .disclosure h2{font-size:20px;margin-bottom:20px}
+  .disclosure p{font-size:13.5px;color:var(--muted);max-width:880px;margin-bottom:14px;line-height:1.75}
+  .disclosure strong{color:var(--text)}
+
+  footer{border-top:1px solid var(--grid);padding:32px 0;font-size:13px;color:var(--muted)}
+  .foot-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>YELLOWIPE</a>
+    <div class="nav-links">
+      <a href="#thesis">AI-Augmented</a>
+      <a href="#platforms">Platforms</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Diversified investment firm</div>
+    <h1><em>AI-augmented</em> capital deployment<br>across five platforms.</h1>
+    <p class="lede">Yellowipe Investments multiplies the effectiveness of capital, assets, and people through AI. We deploy across real estate, public markets, private companies, and operations — and we build the AI infrastructure that enables innovation and compound returns across all four. Every dollar works harder. Every decision is quantified.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#contact">Get in touch</a>
+      <a class="btn btn-ghost" href="#platforms">See how we work</a>
+    </div>
+  </div>
+</header>
+
+<section class="ai-thesis" id="thesis">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">AI as operating system</div>
+      <h2>Capital augmented by intelligence</h2>
+      <p>AI is not a service we offer — it is the foundation of how Yellowipe operates. Machine learning, automation, and data synthesis amplify the reach and return of our capital, our assets, and our people.</p>
+      <p>Every platform benefits: real estate gets AI-driven market analysis and tenant screening. Public markets gets systematic signal generation and portfolio monitoring. Company investments get operational transformation and AI deployment advisory. Operations consulting brings AI-native process redesign. Trading infrastructure is built on continuous learning and adaptation.</p>
+    </div>
+    <div>
+      <ul>
+        <li>Capital efficiency: Do more with less</li>
+        <li>Asset optimization: Predict and respond to market and operational changes</li>
+        <li>Team leverage: Augment human judgment with machine learning</li>
+        <li>Risk automation: Model and monitor downside in real time</li>
+        <li>Data synthesis: Unify market, operational, and alternative data</li>
+        <li>Innovation pipeline: Build the capabilities that shape the next decade</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="overview">
+  <div class="wrap overview-grid">
+    <div class="overview-item">
+      <div class="val">$14.8M</div>
+      <div class="cap">Capital deployed across platforms</div>
+    </div>
+    <div class="overview-item">
+      <div class="val">$4.2M</div>
+      <div class="cap">Real estate assets under management</div>
+    </div>
+    <div class="overview-item">
+      <div class="val">12</div>
+      <div class="cap">Active portfolio investments</div>
+    </div>
+    <div class="overview-item">
+      <div class="val">5</div>
+      <div class="cap">Operating platforms</div>
+    </div>
+  </div>
+</div>
+
+<section id="platforms">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Five platforms</div>
+      <h2>Where we deploy capital and expertise</h2>
+      <p>Different asset classes demand different skill sets and disciplines. Each platform is operationally independent, but all share a unified AI-augmented infrastructure and risk management framework.</p>
+    </div>
+    <div class="platforms">
+      <div class="platform">
+        <div class="badge">Capital investments</div>
+        <h3>Private companies & equity</h3>
+        <p>Direct investments in private companies and early-stage ventures. We bring capital, operational expertise, and AI-driven transformation capabilities. Engagement ranges from financial participation to full operational involvement.</p>
+        <ul>
+          <li>Direct company equity participation</li>
+          <li>Growth-stage and turnaround investments</li>
+          <li>Operational transformation and AI deployment</li>
+          <li>Board-level and advisory involvement</li>
+          <li>Co-investment and syndication</li>
+        </ul>
+      </div>
+      <div class="platform">
+        <div class="badge">Operations</div>
+        <h3>Operations & technology consulting</h3>
+        <p>End-to-end operational and technical advisory for portfolio companies and external clients. Services include AI/ML deployment, systems architecture, software development, and commercial strategy — domestic and international.</p>
+        <ul>
+          <li>AI and machine learning deployment</li>
+          <li>Systems architecture and integration</li>
+          <li>Software development and engineering</li>
+          <li>Process optimization and transformation</li>
+          <li>Commercial and go-to-market strategy</li>
+          <li>Multi-region implementation and scaling</li>
+        </ul>
+      </div>
+      <div class="platform">
+        <div class="badge">Technology</div>
+        <h3>AI-native trading infrastructure</h3>
+        <p>Proprietary development of automation, monitoring, machine learning, and analytics stack enabling systematic and adaptive investment execution at scale across all platforms. Built for innovation and continuous learning.</p>
+        <ul>
+          <li>Quantitative framework and signal generation</li>
+          <li>Automated portfolio monitoring and alerts</li>
+          <li>Market and operational data integration</li>
+          <li>Machine learning model development and training</li>
+          <li>Execution and risk automation</li>
+          <li>Real-time regime detection and adaptation</li>
+        </ul>
+      </div>
+      <div class="platform">
+        <div class="badge">Public markets</div>
+        <h3>Equities & quantitative trading</h3>
+        <p>Systematic screening, analysis, and trading of public equities powered by proprietary quantitative frameworks and machine learning signal generation. Positions screened through AI-enhanced models before entry.</p>
+        <ul>
+          <li>AI-driven quantitative screening</li>
+          <li>Single-name and sector analysis</li>
+          <li>Algorithmic position management</li>
+          <li>Regime classification and adaptation</li>
+          <li>Multi-market and multi-timeframe strategies</li>
+        </ul>
+      </div>
+      <div class="platform">
+        <div class="badge">Real assets</div>
+        <h3>Income real estate</h3>
+        <p>Acquisition, renovation, and long-term operation of residential rental properties. AI enhances every phase: market analysis, property selection, tenant screening, and dynamic pricing optimization.</p>
+        <ul>
+          <li>Buy, renovate, stabilize, and hold</li>
+          <li>AI-driven market and property analysis</li>
+          <li>Predictive tenant and occupancy modeling</li>
+          <li>Premium rental positioning and optimization</li>
+          <li>Portfolio-level rebalancing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Operating principles</div>
+      <h2>How we make decisions</h2>
+      <p>Across five platforms, we apply a consistent framework: quantify before committing, define downside before entry, automate judgment, and innovate relentlessly.</p>
+    </div>
+    <div class="principles">
+      <div class="principle">
+        <div class="num">01 · Quantitative foundation</div>
+        <h3>Numbers first, narrative second</h3>
+        <p>Whether a property acquisition, an equity position, or a company investment — underwriting is spreadsheet-driven and AI-enhanced. Models capture cash flow, return scenarios, and downside cases before capital commitment.</p>
+      </div>
+      <div class="principle">
+        <div class="num">02 · Downside defined</div>
+        <h3>Exit rules precede entry</h3>
+        <p>Position size, stop placement, invalidation levels, and hold timeframes are set before capital is deployed. AI monitors and enforces risk in real time.</p>
+      </div>
+      <div class="principle">
+        <div class="num">03 · Regime awareness</div>
+        <h3>Context shapes strategy</h3>
+        <p>Market, occupancy, and business conditions change. Machine learning detects regime shifts; strategies adapt or pause when conditions no longer match deployment criteria.</p>
+      </div>
+      <div class="principle">
+        <div class="num">04 · Continuous innovation</div>
+        <h3>Build the future operating model</h3>
+        <p>AI is not a static tool — it is a development platform. We invest in research, model training, and new capabilities that compound returns and enable new forms of capital deployment over the next decade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-box" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Bring us an opportunity</h2>
+    <p>Whether it is a property, a company, a trading strategy, a technology build, or an operational transformation — if the opportunity is sound and the numbers pencil, we want to hear about it. We give straight answers.</p>
+    <a class="btn btn-primary" href="mailto:contact@yellowipe.com?subject=Opportunity%20inquiry">Contact us</a>
+  </div>
+</section>
+
+<section class="disclosure" id="disclosures">
+  <div class="wrap">
+    <div class="eyebrow">Disclosures &amp; legal</div>
+    <h2>Important information</h2>
+    <p>Yellowipe Investments is a private investment company that deploys capital on its own account across real estate, public equities, private companies, operations consulting, and proprietary trading technology. Nothing on this website constitutes investment advice, an offer or solicitation to invest, a recommendation of any security, or tax or legal guidance.</p>
+    <p><strong>Yellowipe Investments is not registered as an investment adviser, broker-dealer, or financial planner.</strong> We do not manage client assets, provide personalized investment recommendations, or execute trades on behalf of third parties. Research, analysis, and framework descriptions are for informational and educational purposes only.</p>
+    <p>All investing involves risk, including loss of principal. Real estate carries risks including vacancy, illiquidity, obsolescence, and market cycles. Public market positions face volatility and regime change. Private company investments are inherently illiquid and speculative. AI and machine learning systems carry risks of model error, data bias, technology failure, and unexpected market conditions. Past performance is not predictive of future results.</p>
+    <p>Prospective partners or counterparties should consult their own legal, tax, and financial advisers before engaging with Yellowipe Investments.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>&copy; 2026 Yellowipe Investments. All rights reserved.</div>
+    <div class="mono" style="font-size:12px">AI-augmented capital deployment</div>
+  </div>
+</footer>
+
+</body>
+</html>
